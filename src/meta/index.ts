@@ -1,4 +1,4 @@
 export const metaRootInfo = {
     title: "Figma | Clone",
-    description: "Create by - NextJs app",
+    description: "A minimalist Figma clone using fabric.js & LiveBlocks for realtime collaboration",
 }
