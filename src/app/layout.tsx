@@ -16,8 +16,8 @@ export const metadata: Metadata = { ...metaRootInfo };
 
 const RootLayout = ({ children }: Readonly<LayoutType>) => {
   return (
-    <html lang="en">
-      <body className={`${workSans.className} bg-primary-grey-200`}>
+    <html lang="en" suppressHydrationWarning={true}>
+      <body className={`${workSans.className} bg-primary-grey-200`} suppressHydrationWarning={true}>
         <Room>
           {/* <TooltipProvider> */}
           {children}

@@ -4,12 +4,10 @@ import Cursor from "./Cursor";
 
 // display all other live cursors
 const LiveCursors = ({ others }: LiveCursorProps) => {
-
+  
+  // map all other users, to showing a cursor for each new user...
   return others.map(({ connectionId, presence }) => {
-    
-    if (presence == null || !presence?.cursor) {
-      return null;
-    }
+    if (presence == null || !presence?.cursor) return null;
 
     return (
       <Cursor
@@ -17,7 +15,10 @@ const LiveCursors = ({ others }: LiveCursorProps) => {
         x={presence.cursor.x}
         y={presence.cursor.y}
         message={presence.message}
-        color={COLORS[Number(connectionId) % COLORS.length]}
+        color={
+          // get a radom color, based on connection id
+          COLORS[Number(connectionId) % COLORS.length]
+        }
       />
     );
   });
