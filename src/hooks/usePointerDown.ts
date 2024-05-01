@@ -1,12 +1,8 @@
 import { CursorMode, CursorState } from "@/types/type";
 import { useCallback } from "react";
 
-const usePointerDown = (
-  updateMyPresence: any,
-  setCursorState: any,
-  cursorState: any
-) => {
-
+const usePointerDown = (updateMyPresence: any, cursorState: any, setCursorState: any) => {
+  
   return useCallback(
     (event: React.PointerEvent) => {
       // get the cursor position in the canvas
@@ -16,10 +12,10 @@ const usePointerDown = (
       updateMyPresence({ cursor: { x, y } });
 
       // if cursor is in reaction mode, set isPressed to true
-      setCursorState((state: CursorState) =>
+      setCursorState((previousValue: CursorState) =>
         cursorState.mode === CursorMode.Reaction
-          ? { ...state, isPressed: true }
-          : state
+          ? { ...previousValue, isPressed: true }
+          : previousValue
       );
     },
 

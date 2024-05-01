@@ -11,3 +11,7 @@
 
 - npx create-liveblocks-app@latest --init --framework react
 - npx shadcn-ui@latest init
+
+
+## Learning context: 
+- mouse pointer event 
