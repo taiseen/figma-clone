@@ -9,6 +9,7 @@ import usePointerLeave from "@/hooks/usePointerLeave";
 import usePointerMove from "@/hooks/usePointerMove";
 import usePointerDown from "@/hooks/usePointerDown";
 import LiveCursors from "./cursor/LiveCursors";
+import CursorChat from "./cursor/CursorChat";
 
 const UsersLiveCursor = () => {
   // useOthers returns the list of other users in the room.
@@ -49,6 +50,16 @@ const UsersLiveCursor = () => {
       className="h-screen border border-green-400"
     >
       <h2 className="text-4xl text-white leading-relaxed">Testing</h2>
+
+      {/* If cursor is in chat mode, show the chat cursor */}
+      {cursor && (
+        <CursorChat
+          cursor={cursor}
+          cursorState={cursorState}
+          setCursorState={setCursorState}
+          updateMyPresence={updateMyPresence}
+        />
+      )}
 
       {/* Show the live cursors of other users */}
       <LiveCursors others={others} />

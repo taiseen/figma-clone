@@ -15,7 +15,8 @@ const Cursor = ({ message, color, x, y }: Props) => (
     <CursorSVG color={color} />
 
     {
-      // if massage present...
+      // if massage present, when user start typing after pressing / key cmd...
+      // so flying floating user input text with mouse pointer...
       message && (
         <div
           className="absolute left-2 top-5 rounded-3xl px-4 py-2"
