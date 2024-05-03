@@ -70,7 +70,7 @@ const UsersLiveCursor = () => {
       onPointerMove={handlePointerMove}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
-      className="h-screen border border-green-400"
+      className="relative flex h-full w-full flex-1 items-center justify-center"
     >
       <h2 className="text-4xl text-white leading-relaxed">Testing</h2>
 
