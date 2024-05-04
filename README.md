@@ -9,6 +9,12 @@
 - npm install @liveblocks/react
 - npm install @liveblocks/react-comments
 
+- npm i -D @types/fabric
+- npm i -D @types/uuid
+- npm i -D prettier
+- npm i -D prettier-plugin-tailwindcss
+- npm i -D eslint-plugin-prettier
+
 - npx create-liveblocks-app@latest --init --framework react
 - npx shadcn-ui@latest init
 

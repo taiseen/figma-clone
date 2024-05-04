@@ -17,7 +17,13 @@ import usePointerUp from "@/hooks/usePointerUp";
 import LiveCursors from "./cursor/LiveCursors";
 import CursorChat from "./cursor/CursorChat";
 
-const UsersLiveCursor = () => {
+type Props = {
+  canvasRef: React.MutableRefObject<HTMLCanvasElement | null>;
+  // undo: () => void;
+  // redo: () => void;
+};
+
+const UsersLiveCursor = ({ canvasRef }: Props) => {
   // useOthers returns the list of other users in the room.
   // useOthers: https://liveblocks.io/docs/api-reference/liveblocks-react#useOthers
   const others = useOthers();
@@ -53,26 +59,37 @@ const UsersLiveCursor = () => {
   useRemoveReactions(setReactions);
 
   // Listen to mouse events to change the cursor state
-  const handlePointerMove = usePointerMove(cursor, cursorState, updateMyPresence);
+  const handlePointerMove = usePointerMove(
+    cursor,
+    cursorState,
+    updateMyPresence
+  );
 
   // Hide the cursor when the mouse leaves the canvas
   const handlePointerLeave = usePointerLeave(setCursorState, updateMyPresence);
 
   // Show the cursor when the mouse enters the canvas
-  const handlePointerDown = usePointerDown(updateMyPresence, cursorState, setCursorState);
+  const handlePointerDown = usePointerDown(
+    updateMyPresence,
+    cursorState,
+    setCursorState
+  );
 
   // hide the cursor when the mouse is up
   const handlePointerUp = usePointerUp(cursorState, setCursorState);
 
   return (
     <div
+      id="canvas"
       onPointerLeave={handlePointerLeave}
       onPointerMove={handlePointerMove}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
       className="relative flex h-full w-full flex-1 items-center justify-center"
     >
-      <h2 className="text-4xl text-white leading-relaxed">Testing</h2>
+      {/* <h2 className="text-4xl text-white leading-relaxed">Testing</h2> */}
+
+      <canvas ref={canvasRef} />
 
       {
         // 🔃❄️🔃 Render the reaction animations...
