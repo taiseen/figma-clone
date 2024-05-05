@@ -21,3 +21,5 @@
 
 ## Learning context: 
 - mouse pointer event 
+- usage of liveBlock 
+- canvas drawing system...
